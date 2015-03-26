@@ -1,0 +1,146 @@
+
+/* Animate color of text and borders */
+@-webkit-keyframes colours {
+  0% {
+    border-bottom-color:#66a7b1;
+    color:#66a7b1;
+  }
+  25% {
+    border-bottom-color:#90b393;
+    color:#90b393;
+  }
+  50% {
+    border-bottom-color:#b54242;
+    color:#b54242;
+  }
+  75% {
+    border-bottom-color:#393939;
+    color:#393939;
+  }
+  100% {
+    border-bottom-color:#66a7b1;
+    color:#66a7b1;
+  }
+}
+
+@-moz-keyframes colours {
+  0% {
+    border-bottom-color:#66a7b1;
+    color:#66a7b1;
+  }
+  25% {
+    border-bottom-color:#90b393;
+    color:#90b393;
+  }
+  50% {
+    border-bottom-color:#b54242;
+    color:#b54242;
+  }
+  75% {
+    border-bottom-color:#393939;
+    color:#393939;
+  }
+  100% {
+    border-bottom-color:#66a7b1;
+    color:#66a7b1;
+  }
+}
+
+@keyframes colours {
+  0% {
+    border-bottom-color:#66a7b1;
+    color:#66a7b1;
+  }
+  25% {
+    border-bottom-color:#90b393;
+    color:#90b393;
+  }
+  50% {
+    border-bottom-color:#b54242;
+    color:#b54242;
+  }
+  75% {
+    border-bottom-color:#393939;
+    color:#393939;
+  }
+  100% {
+    border-bottom-color:#66a7b1;
+    color:#66a7b1;
+  }
+}
+
+@timing: 20s;
+
+.animate-colours {
+  -webkit-animation:colours @timing ease-in-out;
+  -moz-animation:colours @timing ease-in-out;
+  animation:colours @timing ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -moz-animation-iteration-count:infinite;
+  animation-iteration-count:infinite;
+}
+
+/* Animate background-colors */
+@-webkit-keyframes bgcolours {
+  0% {
+    background-color:#66a7b1;
+  }
+  25% {
+    background-color:#90b393;
+  }
+  50% {
+    background-color:#b54242;
+  }
+  75% {
+    background-color:#393939;
+  }
+  100% {
+    background-color:#66a7b1;
+  }
+}
+
+@-moz-keyframes bgcolours {
+  0% {
+    background-color:#66a7b1;
+  }
+  25% {
+    background-color:#90b393;
+  }
+  50% {
+    background-color:#b54242;
+  }
+  75% {
+    background-color:#393939;
+  }
+  100% {
+    background-color:#66a7b1;
+  }
+}
+
+@keyframes bgcolours {
+  0% {
+    background-color:#66a7b1;
+  }
+  25% {
+    background-color:#90b393;
+  }
+  50% {
+    background-color:#b54242;
+  }
+  75% {
+    background-color:#393939;
+  }
+  100% {
+    background-color:#66a7b1;
+  }
+}
+
+.animate-bgcolours {
+  -webkit-animation:bgcolours @timing ease-in-out;
+  -moz-animation:bgcolours @timing ease-in-out;
+  animation:bgcolours @timing ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -moz-animation-iteration-count:infinite;
+  animation-iteration-count:infinite;
+
+}
