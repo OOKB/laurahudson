@@ -11,12 +11,20 @@
 */
 
 * {
-  -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
   -ms-box-sizing:border-box;
   box-sizing:border-box;
-  word-wrap:break-word;
   font-family:Helvetica,Arial,sans-serif;
+  /* xtra type stuff */
+  word-wrap:break-word;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -ms-font-feature-settings: "kern";
+  -o-font-feature-settings: "kern";
+  font-feature-settings: "kern";
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -120,6 +128,8 @@ header nav {
     padding:0;
     text-align:left;
 
+    h2 { display:none; }
+
     li {
       float:left;
       list-style:none;
@@ -189,9 +199,6 @@ main {
 
           &:hover,
           &.active {
-            background-image: url(???arrow.png);
-            background-position: center top;
-            background-repeat: no-repeat;
             .animate-bgcolours;
             color:white;
           }
@@ -204,6 +211,26 @@ main {
     ul,p {
       color:#796D69;
       margin:12.36px 0;
+      padding: 0;
+    }
+
+    .image-grid {
+      list-style: none;
+      margin-left: -4.72px;
+      margin-right: -4.72px;
+
+      &::after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+      .item {
+        float: left;
+        width: 50%;
+        overflow: hidden;
+        position: relative;
+        padding: 4.72px;
+      }
     }
   }
 }
@@ -233,6 +260,11 @@ main {
     }
 
     section {
+      .image-grid {
+        .item {
+          width: 33%;
+        }
+      }
     }
   }
 }
@@ -244,18 +276,33 @@ main {
     aside {
       float: left;
       width: 25%;
+      ul {
+        li {
+          a {
+            &:hover,
+            &.active {
+              background-image: url(/media/arrow.png);
+              background-position: right center;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+      }
     }
 
     section {
       margin-left: 25%;
+      .image-grid {
+        .item {
+          width: 25%;
+        }
+      }
     }
   }
 }
 
 @media (min-width: @large) {
   main {
-    padding-top: 96.98px;
-    padding-bottom: 96.98px;
 
     aside {
     }
