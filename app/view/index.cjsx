@@ -10,7 +10,7 @@ module.exports = React.createClass
     router: React.PropTypes.func.isRequired
   }
   render: ->
-    {db, title, sha, sections, section, workIndex} = @props
+    {db, title, sha, sections, section, workIndex, archiveYears} = @props
     {primaryMenu, author, description} = db
 
     appFileName = sha or 'app'
@@ -28,6 +28,8 @@ module.exports = React.createClass
       metaDescription = false
 
     {pageId} = @context.router.getCurrentParams()
+    pathParts = @context.router.getCurrentPathname().split('/')
+
     if pageId
       if workIndex and pageData = db.work.contents[workIndex[pageId]]
         # @TODO Should check section too...
@@ -35,7 +37,12 @@ module.exports = React.createClass
       else if pageData = db[pageId]
         console.log 'normal pg data', pageId
       else
-        console.log 'missing page data!', pageId
+        if pathParts[1] is 'archive' and archiveYears
+          pageData =
+            images: archiveYears[parseInt(pageId)]
+            title: pageId
+        else
+          console.log 'missing page data!', pageId, currentPath
 
     <html>
       <head>
