@@ -1,100 +1,104 @@
-/* Overlay...
-   ============================= */
+/* *********************************************** */
+/* *********************************************** */
+/* »»»»»»» Overlay Related Styles «««««««« */
+/* *********************************************** */
+/* *********************************************** */
 
-#cboxOverlay {
-  background:white;
-  .animate-bgcolours;
-  width:100%;
-  height:100%;
-  position:fixed;
-  left:0;
-  top:0;
-  z-index:9997;
+section {
+  .image-grid {
+    .item.img-detail {
+      .animate-bgcolours;
+      background-image: url('/media/loading.gif');
+      background-position: center center;
+      background-repeat: no-repeat;
+      border: 7.64px solid white;
+      position: fixed;
+      top:0;
+      right:0;
+      bottom: 0;
+      left:0;
+      height: 100%;
+      width: 100%;
+      padding: 20px;
+      overflow: hidden;
+      text-align: center;
+      z-index: 99;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.5%; /* Adjusts for spacing */
+      }
+
+      img {
+        max-height: 99%;
+        max-width: 99%;
+        width: auto;
+        height: auto;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+  }
 }
 
-#colorbox {
-  opacity:1;
-  z-index:9998;
+.img-detail button {
+  width: 33%;
+  position: absolute;
+  float: none;
+  display: block;
+  z-index: 10;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  border: none;
 }
 
-#cboxContent,
-#cboxLoadedContent {
-  position:relative;
-  z-index:9998;
+.img-detail button.left {
+  left: 0;
 }
 
-#cboxLoadingOverlay,
-#cboxLoadingGraphic,
-#cboxCurrent {
-  display:none;
+.img-detail button.right {
+  right: 0;
 }
 
-#cboxTitle,
-#cboxNext,
-#cboxPrevious,
-#cboxClose {
-  color:white;
-  float:none !important;
-  opacity:1;
-  position:absolute !important;
-  z-index:9999 !important;
+.img-detail button.left:hover {
+  background: linear-gradient( 90deg, rgba(0,0,0,.25), rgba(255,255,255,0));
 }
 
-#cboxNext,
-#cboxPrevious {
-  cursor:pointer;
-  display:block;
-  height:100%;
-  margin:0;
-  opacity:.5;
-  overflow:hidden;
-  padding:0;
-  position:absolute;
-  text-indent:-999999px;
-  top:0;
-  width:100px;
+.img-detail button.right:hover {
+  background: linear-gradient( 90deg, rgba(255,255,255,0), rgba(0,0,0,.25));
 }
 
-#cboxNext {
-  background:url(???arrowR.png) center center no-repeat;
-  right:-100px;
+.overlay > div {
+  margin-bottom: 20px;
 }
 
-#cboxPrevious {
-  background:url(???arrowL.png) center center no-repeat;
-  left:-100px;
+.overlay ul.project-nav li {
+  margin: 0 10px;
 }
 
-#cboxNext:hover,
-#cboxPrevious:hover {
-  cursor:pointer;
-  display:block;
-  opacity:1;
+.overlay ul.project-nav li button {
+  width: 140px;
+  /**/
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background: transparent;
+  padding: 10px;
 }
 
-#cboxClose {
-  -webkit-animation:colours 20s 30 ease-in-out;
-  -moz-animation:colours 20s 30 ease-in-out;
-  animation:colours 20s 30 ease-in-out;
-  -webkit-animation-iteration-count:infinite;
-  -moz-animation-iteration-count:infinite;
-  animation-iteration-count:infinite;
-  -webkit-animation-direction:alternate;
-  -moz-animation-direction:alternate;
-  animation-direction:alternate;
-  background:white;
-  cursor:pointer;
-  display:block;
-  font-size:40px;
-  height:40px;
-  margin:0;
-  padding:10px;
-  position:absolute;
-  text-align:center;
-  bottom:-30px;
-  right:-30px;
-  width:40px;
-  -webkit-border-radius:30px;
-  -moz-border-radius:30px;
-  border-radius:30px;
+.overlay ul.project-nav li button:hover {
+/*   background: linear-gradient( 0deg, rgba(0,0,0,.1), rgba(255,255,255,0)); */
+  border-color: black;
+  outline: none;
+}
+
+.overlay ul.project-nav li button:active {
+  background-color: rgba(0,0,0,.05);
+  box-shadow: inset 0px 2px 4px rgba(0,0,0,.2);
+  border-color: black;
+  outline: none;
 }
