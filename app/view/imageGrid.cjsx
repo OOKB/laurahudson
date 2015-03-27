@@ -12,7 +12,7 @@ Image = React.createClass
     {id, filename, i} = @props
     imgUrl = "http://ezle.imgix.net/#{id}?w=300&h=300&fit=crop"
     path = @context.router.getCurrentPathname()
-    <Link to={path} query={i:i} role="button" activeClassName="">
+    <Link to={path} query={i:i} role="button" activeClassName="" className="">
       <img className="small" src={imgUrl} alt={filename} />
     </Link>
 
@@ -28,6 +28,7 @@ ImageDetail = React.createClass
     path = @context.router.getCurrentPathname()
 
     <div className="img-detail">
+      <Link className="button close" to={path} role="button"> Close </Link>
       <Link className="button left" to={path} query={i:prevIndex} role="button"> Previous </Link>
       <a href="#" role="button" onClick={@close}>
         <img className="large" src={imgUrl} alt={filename} />
@@ -42,16 +43,15 @@ module.exports = React.createClass
   getInitialState: ->
     isMounted: false
 
-  # componentDidMount: ->
-  #   @setState isMounted: true
+  componentDidMount: ->
+    @setState isMounted: true
 
   render: ->
     {images} = @props
     {isMounted} = @state
+    {i} = @context.router.getCurrentQuery()
     i = parseInt(i)
     maxIndex = images.length - 1
-    if isMounted
-      console.log 'mounted!'
     ImageEl = (image, index) =>
       {id, filename, rev} = image
       if isMounted and i is index
