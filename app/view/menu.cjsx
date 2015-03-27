@@ -4,13 +4,16 @@ _ = require 'lodash'
 
 MenuItem = React.createClass
   render: ->
-    {link, title} = @props
+    {link, title, section} = @props
+    unless section
+      section = 'page'
+
     if _.isString(link) and link.slice(0, 4) is 'http'
       # Make normal link
       linkEl = <a href={link}>{title}</a>
     else
       # Make router link.
-      linkEl = <Link to="page" params={pageId: link}>{title}</Link>
+      linkEl = <Link to={section} params={pageId: link}>{title}</Link>
 
     <li>
       {linkEl}
@@ -18,11 +21,13 @@ MenuItem = React.createClass
 
 module.exports = React.createClass
   render: ->
-    {menu, className} = @props
+    {menu, className, title} = @props
 
     MenuItemEl = (item, i) ->
-      <MenuItem key={i} link={item.link} title={item.title} />
+      {link, title, section} = item
+      <MenuItem key={i} link={link} title={title} section={section} />
 
     <ul className={className or "menu"}>
+      <h2>{title}</h2>
       { _.map menu, MenuItemEl }
     </ul>

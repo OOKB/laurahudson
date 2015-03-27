@@ -10,10 +10,12 @@ module.exports = React.createClass
     {pageData, sections, sectionsData} = @props
 
     SectionMenuEl = (sectionId, i) ->
-      <div className="block" key={i} >
-        <h2>{_.capitalize(sectionId)}</h2>
-        <Menu menu={sectionsData[sectionId]} className={sectionId} />
-      </div>
+      <Menu
+        key={i}
+        menu={sectionsData[sectionId]}
+        className={sectionId}
+        title={_.capitalize(sectionId)}
+      />
 
     <main>
       <aside>
