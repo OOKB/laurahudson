@@ -17,21 +17,22 @@ Image = React.createClass
     </Link>
 
 ImageDetail = React.createClass
-  prev: ->
-    return
-  close: ->
-    return
-  next: ->
-    return
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
+  }
   render: ->
-    {id, filename} = @props
+    {id, filename, maxIndex, i} = @props
     imgUrl = "http://ezle.imgix.net/#{id}?w=1200"
+    nextIndex = if i is maxIndex then 0 else i+1
+    prevIndex = if i is 0 then maxIndex else i-1
+    path = @context.router.getCurrentPathname()
+
     <div className="img-detail">
-      <button className="left" onClick={@prev} role="button"> Previous </button>
+      <Link className="left" to={path} query={i:prevIndex} role="button"> Previous </Link>
       <a href="#" role="button" onClick={@close}>
         <img className="large" src={imgUrl} alt={filename} />
       </a>
-      <button className="left" onClick={@next} role="button"> Previous </button>
+      <Link className="right" to={path} query={i:nextIndex} role="button"> Next </Link>
     </div>
 
 module.exports = React.createClass
@@ -42,11 +43,11 @@ module.exports = React.createClass
     {images} = @props
     {i} = @context.router.getCurrentQuery()
     i = parseInt(i)
-
+    maxIndex = images.length - 1
     ImageEl = (image, index) ->
       {id, filename, rev} = image
       if i is index
-        Detail = <ImageDetail id={id} filename={filename} i={i} />
+        Detail = <ImageDetail id={id} filename={filename} i={i} maxIndex={maxIndex} />
       <li className="image" key={rev} >
         <Image id={id} filename={filename} i={index} />
         {Detail}
