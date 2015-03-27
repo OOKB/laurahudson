@@ -33,5 +33,5 @@ module.exports = (data) ->
         unless data.section['archive']
           data.section.archive = {}
           data.sections.push 'archive'
-        unless
+
   return data
