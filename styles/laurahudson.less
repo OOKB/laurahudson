@@ -1,4 +1,15 @@
 /** most of this stuff can probably go **/
+/*
+  4.72px     6.472px
+  7.64px     8.09px
+ 12.36px    10.79px
+ 20.00px    16.18px
+ 32.36px    32.36px
+ 52.36px    64.72px
+ 84.72px    97.08px
+137.07px   129.44px
+*/
+
 * {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
@@ -78,7 +89,6 @@ footer a {
 
 header {
   border-bottom:solid 7.64px;
-  margin:0 0 26.17924px 0;
   padding:0 0 6.75px 0;
 }
 
@@ -196,7 +206,8 @@ aside ul {
 }
 
 main {
-  padding-top:96.98px;
+  padding-top:16.18px;
+  padding-bottom:16.18px;
   position:relative;
 
   aside {
@@ -210,10 +221,20 @@ main {
 
 @media (min-width: @small) and (max-width: 991px) {
   main {
+    padding-top: 32.36px;
+    padding-bottom: 32.36px;
     aside {
+      margin-bottom: 32.36px;
+      &::after {
+        content: '';
+        display: table;
+        clear:both;
+      }
       nav {
         &::after {
-
+          content: '';
+          display: table;
+          clear:both;
         }
         ul {
           float: left;
@@ -230,7 +251,7 @@ main {
 
 @media (min-width: @medium) {
   main {
-    padding-top: 96.98px;
+    padding-top: 64.72px;
     padding-bottom: 96.98px;
     aside {
       float: left;
@@ -245,6 +266,8 @@ main {
 
 @media (min-width: @large) {
   main {
+    padding-top: 96.98px;
+    padding-bottom: 96.98px;
 
     aside {
 
