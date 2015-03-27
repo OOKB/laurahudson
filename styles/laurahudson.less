@@ -1,18 +1,16 @@
 
 /** most of this stuff can probably go **/
-#page,
-.region-bottom {
+.container {
   margin-left:auto;
   margin-right:auto;
   max-width:1200px;
 }
 
-#header,
-#content,
-#navigation,
-.region-sidebar-first,
-.region-sidebar-second,
-#footer {
+header,
+main,
+main aside,
+main section,
+footer {
   padding-left:12.36px;
   padding-right:12.36px;
   -moz-box-sizing:border-box;
@@ -25,35 +23,35 @@
   _overflow-y:visible;
 }
 
-#header,
-#main,
-#footer {
+header,
+main,
+footer {
   *position:relative;
   *zoom:1;
 }
 
-#header:before,
-#header:after,
-#main:before,
-#main:after,
-#footer:before,
-#footer:after {
+header:before,
+header:after,
+main:before,
+main:after,
+footer:before,
+footer:after {
   content:"";
   display:table;
 }
 
-#header:after,
-#main:after,
-#footer:after {
+header:after,
+main:after,
+footer:after {
   clear:both;
 }
 
 @media all and (min-width:480px) {
-  #main {
+  main {
     padding-top:96.98px;
     position:relative;
   }
-  #navigation {
+  header nav {
     height:64.72px;
     width:100%;
     border-bottom:solid 7.64px;
@@ -416,14 +414,14 @@ li a.active {
   color:#000;
 }
 
-#navigation {}
+header nav {}
 
-#navigation .block {
+header nav .block {
   margin-bottom:0;
 }
 
-#navigation .block-menu .block-title,
-#navigation .block-menu-block .block-title {
+header nav .block-menu .block-title,
+header nav .block-menu-block .block-title {
   position:absolute !important;
   height:1px;
   width:1px;
@@ -432,15 +430,15 @@ li a.active {
   clip:rect(1px,1px,1px,1px);
 }
 
-#navigation ul.links,
-#navigation ul.menu {
+header nav ul.links,
+header nav ul.menu {
   margin:0;
   padding:0;
   text-align:left;
 }
 
-#navigation ul.links li,
-#navigation ul.menu li {
+header nav ul.links li,
+header nav ul.menu li {
   float:left;
   padding:0 10px 0 0;
   list-style-type:none;
@@ -618,10 +616,13 @@ td.menu-disabled {
 
 /* below here is definitely the styles I wrote for real */
 
+* {
+  font-family:Helvetica,Arial,sans-serif;
+}
+
 body {
   color:#796D69;
   font-size:20px;
-  font-family:Helvetica,Arial,sans-serif;
   line-height:32.36px;
   padding-top:32.36px;
 }
@@ -647,8 +648,8 @@ h6 {
   margin:12.36px 0;
 }
 
-#main p,
-#main .sidebars ul {
+main p,
+main .sidebars ul {
   margin:12.36px 0;
 }
 
@@ -664,9 +665,9 @@ header h1 a {
   padding:0;
 }
 
+header h1,
 header h1 a {
   display:block;
-  font-family:Helvetica,Arial,sans-serif;
   font-size:84.72px;
   font-weight:bold;
   letter-spacing:-4.72px;
@@ -674,24 +675,23 @@ header h1 a {
   text-decoration:none;
 }
 
-#navigation nav ul {}
+header nav nav ul {}
 
-#navigation nav ul li {
+header nav nav ul li {
   margin-left:7.64px;
   margin-right:32.36px;
   padding:0 !important;
 }
 
-#navigation nav li a {
+header nav nav li a {
   border-bottom:none;
-  font-family:Helvetica,Arial,sans-serif;
   font-size:26.17924px;
   font-weight:bold;
   letter-spacing:0;
   text-decoration:none;
 }
 
-#navigation nav li a:hover {
+header nav nav li a:hover {
   border-bottom:4.72px solid;
 }
 
@@ -703,9 +703,9 @@ footer {
 
 header,
 header h1 a,
-#navigation,
-#navigation ul li a,
-#main,
+header nav,
+header nav ul li a,
+main,
 aside.sidebars,
 aside.sidebars a,
 #block-views-custom-taxonomy-pages-block .body,

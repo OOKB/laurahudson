@@ -25,7 +25,7 @@ module.exports = React.createClass
         <title>{title or 'title'}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href={cssFilePath} />
         <meta name="generator" content="CAPE.io, see www.cape.io" />
         {metaAuthor} {metaDescription}
       </head>
