@@ -164,58 +164,47 @@ a.button {
    ============================================================== */
 
 main {
-}
-
-main p,
-aside ul {
-  margin:12.36px 0;
-}
-
-main p {
-  color:#796D69;
-}
-
-aside ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-
-  li {
-    display:list-item;
-    list-style:none;
-    margin:0;
-    padding:0;
-    width:100%;
-
-    a {
-      display:block;
-      margin:0 -1em;
-      padding:0 1em;
-      width:100%;
-
-      &:hover,
-      &.active {
-        background-image: url(???arrow.png);
-        background-position: center top;
-        background-repeat: no-repeat;
-        .animate-bgcolours;
-        color:white;
-      }
-    }
-  }
-}
-
-main {
   padding-top:16.18px;
   padding-bottom:16.18px;
   position:relative;
 
   aside {
+    ul {
+      list-style:none;
+      margin: 12.36px 0;
+      padding:0;
 
+      li {
+        display:list-item;
+        list-style:none;
+        margin:0;
+        padding:0;
+        width:100%;
+
+        a {
+          display:block;
+          margin:0 -1em;
+          padding:0 1em;
+          width:100%;
+
+          &:hover,
+          &.active {
+            background-image: url(???arrow.png);
+            background-position: center top;
+            background-repeat: no-repeat;
+            .animate-bgcolours;
+            color:white;
+          }
+        }
+      }
+    }
   }
 
   section {
-
+    ul,p {
+      color:#796D69;
+      margin:12.36px 0;
+    }
   }
 }
 
@@ -244,7 +233,6 @@ main {
     }
 
     section {
-
     }
   }
 }
@@ -255,11 +243,11 @@ main {
     padding-bottom: 96.98px;
     aside {
       float: left;
-      width: 33%;
+      width: 25%;
     }
 
     section {
-      margin-left: 33%;
+      margin-left: 25%;
     }
   }
 }
@@ -270,11 +258,9 @@ main {
     padding-bottom: 96.98px;
 
     aside {
-
     }
 
     section {
-
     }
   }
 }
