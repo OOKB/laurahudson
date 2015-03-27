@@ -20,13 +20,13 @@ body {
 .container {
   margin-left:auto;
   margin-right:auto;
+  width: 100%;
   max-width:1240px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 header,
-main,
 main aside,
 main section,
 footer {
@@ -138,11 +138,6 @@ footer {
   padding:12.36px 0 0 0;
 }
 
-main {
-  padding-top:96.98px;
-  position:relative;
-}
-
 a,
 a:hover {
   text-decoration:none !important;
@@ -153,6 +148,12 @@ a.button {
   -webkit-appearance:button;
   -moz-appearance:button;
   appearance:button;
+}
+
+/* Some layout related stuff
+   ============================================================== */
+
+main {
 }
 
 main p,
@@ -193,6 +194,68 @@ aside ul {
     }
   }
 }
+
+main {
+  padding-top:96.98px;
+  position:relative;
+
+  aside {
+
+  }
+
+  section {
+
+  }
+}
+
+@media (min-width: @small) and (max-width: 991px) {
+  main {
+    aside {
+      nav {
+        &::after {
+
+        }
+        ul {
+          float: left;
+          width: 50%;
+        }
+      }
+    }
+
+    section {
+
+    }
+  }
+}
+
+@media (min-width: @medium) {
+  main {
+    padding-top: 96.98px;
+    padding-bottom: 96.98px;
+    aside {
+      float: left;
+      width: 33%;
+    }
+
+    section {
+      margin-left: 33%;
+    }
+  }
+}
+
+@media (min-width: @large) {
+  main {
+
+    aside {
+
+    }
+
+    section {
+
+    }
+  }
+}
+
 
 /* Something to do with the groups of images from the "work" menu
    ============================================================== */
