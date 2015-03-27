@@ -6,70 +6,103 @@
 
 section {
   .image-grid {
-    .image.img-detail {
-      .animate-bgcolours;
-      background-image: url('/media/loading.gif');
-      background-position: center center;
-      background-repeat: no-repeat;
-      border: 7.64px solid white;
-      position: fixed;
-      top:0;
-      right:0;
-      bottom: 0;
-      left:0;
-      height: 100%;
-      width: 100%;
-      padding: 20px;
-      overflow: hidden;
-      text-align: center;
-      z-index: 99;
-
-      &::before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        margin-right: -0.5%; /* Adjusts for spacing */
-      }
-
-      img {
-        max-height: 99%;
-        max-width: 99%;
-        width: auto;
-        height: auto;
-        vertical-align: middle;
-        display: inline-block;
-      }
-
-      /** controls **/
-      button {
-        width: 33%;
-        position: absolute;
-        float: none;
-        display: block;
-        z-index: 10;
-        height: 100%;
-        top: 0;
+    .image {
+      .img-detail {
+        .animate-bgcolours;
+        background-image: url('/media/loading.gif');
+        background-position: center center;
+        background-repeat: no-repeat;
+        border: 7.64px solid white;
+        position: fixed;
+        top:0;
+        right:0;
         bottom: 0;
-        background: transparent;
-        border: none;
+        left:0;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        overflow: hidden;
+        text-align: center;
+        z-index: 99;
 
-        &.left {
-          left: 0;
+        &::before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+          margin-right: -0.5%; /* Adjusts for spacing */
         }
 
-        &.right {
-          right: 0;
+        img {
+          max-height: 99%;
+          max-width: 99%;
+          width: auto;
+          height: auto;
+          vertical-align: middle;
+          display: inline-block;
         }
 
-          &:hover {
-            background: linear-gradient( 90deg, rgba(0,0,0,.25), rgba(0,0,0,0));
+        /** controls **/
+        a.button {
+          position: absolute;
+          float: none;
+          display: block;
+          z-index: 199;
+          background: transparent;
+          border: none;
+
+          &.close {
+            background-image: url(/media/close.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 30px;
+            width: 30px;
+            top: 15px;
+            right: 15px;
           }
 
-          &:hover {
-            background: linear-gradient( 90deg, rgba(0,0,0,0), rgba(0,0,0,.25));
+          &.left {
+            width: 33%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            &:hover {
+              background: linear-gradient( 90deg, rgba(0,0,0,.25), rgba(0,0,0,0));
+            }
+
+            &::after {
+              background-image: url(/media/arrowL.png);
+              background-position: center center;
+              background-repeat: no-repeat;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+            }
           }
 
+          &.right {
+            width: 33%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            right: 0;
+
+            &:hover {
+              background: linear-gradient( 90deg, rgba(0,0,0,0), rgba(0,0,0,.25));
+            }
+
+            &::after {
+              background-image: url(/media/arrowR.png);
+              background-position: center center;
+              background-repeat: no-repeat;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+            }
+          }
+        }
       }
     }
   }
