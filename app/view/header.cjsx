@@ -1,17 +1,13 @@
 React = require 'react'
+Menu = require './menu'
 
 module.exports = React.createClass
   render: ->
-    {data, query} = @props
+    {primaryMenu} = @props
 
     <header>
       <h1>Laura Hudson</h1>
       <nav>
-        <ul>
-          <li><a href="#">Statement</a></li>
-          <li><a href="#">Bio</a></li>
-          <li><a href="#">Résumé</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+        <Menu menu={primaryMenu} />
       </nav>
     </header>
