@@ -15,7 +15,7 @@ module.exports = (data) ->
     data.workIndex = {}
     # Loop through everything in the work folder.
     _.each db.work.contents, (project, i) ->
-      {title, filename, section, year} = project
+      {title, filename, section, year, images} = project
       data.workIndex[filename] = i
       # If there is a section defined place it into the section menu.
       if section
@@ -36,12 +36,18 @@ module.exports = (data) ->
           data.section.archive = []
           data.sections.push 'archive'
         unless archiveYears[year]
-          archiveYears[year] = true
+          archiveYears[year] = []
           data.section['archive'].push {
             title: year
             section: 'archive'
             link: year
           }
+        if images
+          _.each images, (img) ->
+            archiveYears[year].push _.pick(img, ['cdn', 'filename', 'rev'])
+
     if data.section?.archive
       data.section.archive = _.sortBy data.section.archive, 'link'
+    data.archiveYears = archiveYears
+
   return data

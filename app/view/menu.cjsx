@@ -21,12 +21,13 @@ MenuItem = React.createClass
 
 module.exports = React.createClass
   render: ->
-    {menu, className} = @props
+    {menu, className, title} = @props
 
     MenuItemEl = (item, i) ->
       {link, title, section} = item
       <MenuItem key={i} link={link} title={title} section={section} />
 
     <ul className={className or "menu"}>
+      <h2>{title}</h2>
       { _.map menu, MenuItemEl }
     </ul>
