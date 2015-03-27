@@ -5,7 +5,7 @@ _ = require 'lodash'
 MenuItem = React.createClass
   render: ->
     {link, title} = @props
-    if link and link.slice(0, 4) is 'http'
+    if _.isString(link) and link.slice(0, 4) is 'http'
       # Make normal link
       linkEl = <a href={link}>{title}</a>
     else

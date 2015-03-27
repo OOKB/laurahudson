@@ -31,7 +31,13 @@ module.exports = (data) ->
       # Build archive indexBy years.
       if year
         unless data.section['archive']
-          data.section.archive = {}
+          data.section.archive = []
           data.sections.push 'archive'
+        unless archiveYears[year]
+          data.section['archive'].push {
+            title: year
+            section: 'archive'
+            link: year
+          }
 
   return data
