@@ -12,9 +12,11 @@ module.exports = (data) ->
   archiveYears = {}
 
   if db.work?.contents
+    data.workIndex = {}
     # Loop through everything in the work folder.
-    _.each db.work.contents, (project) ->
+    _.each db.work.contents, (project, i) ->
       {title, filename, section, year} = project
+      data.workIndex[filename] = i
       # If there is a section defined place it into the section menu.
       if section
         unless data.section[section]
