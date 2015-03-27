@@ -28,25 +28,30 @@ ImageDetail = React.createClass
     path = @context.router.getCurrentPathname()
 
     <div className="img-detail">
-      <Link className="left" to={path} query={i:prevIndex} role="button"> Previous </Link>
+      <Link className="button left" to={path} query={i:prevIndex} role="button"> Previous </Link>
       <a href="#" role="button" onClick={@close}>
         <img className="large" src={imgUrl} alt={filename} />
       </a>
-      <Link className="right" to={path} query={i:nextIndex} role="button"> Next </Link>
+      <Link className="button right" to={path} query={i:nextIndex} role="button"> Next </Link>
     </div>
 
 module.exports = React.createClass
   contextTypes: {
     router: React.PropTypes.func.isRequired
   }
+  getInitialState: ->
+    isMounted: false
+  componentDidMount: ->
+    @setState isMounted: true
+
   render: ->
     {images} = @props
-    {i} = @context.router.getCurrentQuery()
+    {isMounted} = @state
     i = parseInt(i)
     maxIndex = images.length - 1
-    ImageEl = (image, index) ->
+    ImageEl = (image, index) =>
       {id, filename, rev} = image
-      if i is index
+      if isMounted and i is index
         Detail = <ImageDetail id={id} filename={filename} i={i} maxIndex={maxIndex} />
       <li className="image" key={rev} >
         <Image id={id} filename={filename} i={index} />
