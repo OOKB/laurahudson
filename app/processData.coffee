@@ -34,10 +34,12 @@ module.exports = (data) ->
           data.section.archive = []
           data.sections.push 'archive'
         unless archiveYears[year]
+          archiveYears[year] = true
           data.section['archive'].push {
             title: year
             section: 'archive'
             link: year
           }
-
+    if data.section?.archive
+      data.section.archive = _.sortBy data.section.archive, 'link'
   return data
