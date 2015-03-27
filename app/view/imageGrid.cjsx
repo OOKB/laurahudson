@@ -10,10 +10,11 @@ module.exports = React.createClass
     {images} = @props
 
     ImageEl = (image, i) ->
-      {cdn, filename, rev} = image
-      <div className="item" key={rev} >
-        <img src={cdn+'?size=l'} alt={filename} />
-      </div>
+      {id, filename, rev} = image
+      imgUrl = "http://ezle.imgix.net/#{id}?w=300&h=300&fit=crop"
+      <li className="item" key={rev} >
+        <img src={imgUrl} alt={filename} />
+      </li>
 
     <ul className="image-grid">
       { _.map images, ImageEl }

@@ -44,7 +44,7 @@ module.exports = (data) ->
           }
         if images
           _.each images, (img) ->
-            archiveYears[year].push _.pick(img, ['cdn', 'filename', 'rev'])
+            archiveYears[year].push _.pick(img, ['id', 'filename', 'rev'])
 
     if data.section?.archive
       data.section.archive = _.sortByOrder data.section.archive, 'link', false
