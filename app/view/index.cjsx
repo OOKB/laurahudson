@@ -10,7 +10,7 @@ module.exports = React.createClass
     router: React.PropTypes.func.isRequired
   }
   render: ->
-    {db, title, sha} = @props
+    {db, title, sha, sections, section} = @props
     {primaryMenu, author, description} = db
 
     appFileName = sha or 'app'
@@ -43,7 +43,7 @@ module.exports = React.createClass
       <body>
         <div className="container">
           <Header primaryMenu={primaryMenu} />
-          <Main pageData={pageData} />
+          <Main pageData={pageData} sections={sections} sectionsData={section} />
           <Footer />
         </div>
         <script src={jsFilePath} type="text/javascript" />

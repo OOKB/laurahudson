@@ -1,28 +1,21 @@
 React = require 'react'
 {RouteHandler} = require 'react-router'
+_ = require 'lodash'
+
+Menu = require './menu'
 
 module.exports = React.createClass
+
   render: ->
-    {pageData} = @props
+    {pageData, sections, sectionsData} = @props
+
+    SectionMenuEl = (sectionId, i) ->
+      <Menu key={i} menu={sectionsData[sectionId]} className={sectionId} />
 
     <main>
       <aside>
         <nav>
-          <ul>
-            <h2>Work</h2>
-            <li><a href="#">TK</a></li>
-            <li><a href="#">TK</a></li>
-            <li><a href="#">TK</a></li>
-          </ul>
-          <ul>
-            <h2>Archive</h2>
-            <li><a href="#">2015</a></li>
-            <li><a href="#">2014</a></li>
-            <li><a href="#">2013</a></li>
-            <li><a href="#">2012</a></li>
-            <li><a href="#">2011</a></li>
-            <li><a href="#">2010</a></li>
-          </ul>
+          { _.map sections, SectionMenuEl }
         </nav>
       </aside>
       <section>
