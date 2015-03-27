@@ -1,8 +1,9 @@
 React = require 'react'
+{RouteHandler} = require 'react-router'
 
 module.exports = React.createClass
   render: ->
-    {data, query} = @props
+    {pageData} = @props
 
     <main>
       <aside>
@@ -25,6 +26,6 @@ module.exports = React.createClass
         </nav>
       </aside>
       <section>
-        WHERE THE WORKS AND PAGE CONTENTS, ETC GO!
+        { React.createElement(RouteHandler, pageData) }
       </section>
     </main>

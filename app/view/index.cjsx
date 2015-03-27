@@ -1,11 +1,18 @@
 React = require 'react'
-{Link} = require 'react-router'
-{RouteHandler, State} = require 'react-router'
+{Link, RouteHandler} = require 'react-router'
+
+Header = require './header'
+Main = require './main'
+Footer = require './footer'
 
 module.exports = React.createClass
-  mixins: [State]
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
+  }
   render: ->
-    {sha, description, author, title} = @props
+    {db, title, sha} = @props
+    {primaryMenu, author, description} = db
+
     appFileName = sha or 'app'
     cssFilePath = "/assets/#{appFileName}.css"
     jsFilePath = "/assets/#{appFileName}.js"
@@ -20,6 +27,10 @@ module.exports = React.createClass
     else
       metaDescription = false
 
+    {pageId} = @context.router.getCurrentParams()
+    if pageId and pageData = db[pageId]
+      console.log 'Page has values', pageId
+
     <html>
       <head>
         <title>{title or 'title'}</title>
@@ -30,7 +41,11 @@ module.exports = React.createClass
         {metaAuthor} {metaDescription}
       </head>
       <body>
-        {React.createElement(RouteHandler, @props)}
+        <div className="container">
+          <Header primaryMenu={primaryMenu} />
+          <Main pageData={pageData} />
+          <Footer />
+        </div>
         <script src={jsFilePath} type="text/javascript" />
       </body>
     </html>
