@@ -31,7 +31,7 @@ module.exports = React.createClass
     if pageId
       if workIndex and pageData = db.work.contents[workIndex[pageId]]
         # @TODO Should check section too...
-        console.log 'work page', pageData
+        console.log 'work page', pageId
       else if pageData = db[pageId]
         console.log 'normal pg data', pageId
       else
