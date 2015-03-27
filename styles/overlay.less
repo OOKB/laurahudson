@@ -1,0 +1,100 @@
+/* Overlay...
+   ============================= */
+
+#cboxOverlay {
+  background:white;
+  .animate-bgcolours;
+  width:100%;
+  height:100%;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:9997;
+}
+
+#colorbox {
+  opacity:1;
+  z-index:9998;
+}
+
+#cboxContent,
+#cboxLoadedContent {
+  position:relative;
+  z-index:9998;
+}
+
+#cboxLoadingOverlay,
+#cboxLoadingGraphic,
+#cboxCurrent {
+  display:none;
+}
+
+#cboxTitle,
+#cboxNext,
+#cboxPrevious,
+#cboxClose {
+  color:white;
+  float:none !important;
+  opacity:1;
+  position:absolute !important;
+  z-index:9999 !important;
+}
+
+#cboxNext,
+#cboxPrevious {
+  cursor:pointer;
+  display:block;
+  height:100%;
+  margin:0;
+  opacity:.5;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+  text-indent:-999999px;
+  top:0;
+  width:100px;
+}
+
+#cboxNext {
+  background:url(???arrowR.png) center center no-repeat;
+  right:-100px;
+}
+
+#cboxPrevious {
+  background:url(???arrowL.png) center center no-repeat;
+  left:-100px;
+}
+
+#cboxNext:hover,
+#cboxPrevious:hover {
+  cursor:pointer;
+  display:block;
+  opacity:1;
+}
+
+#cboxClose {
+  -webkit-animation:colours 20s 30 ease-in-out;
+  -moz-animation:colours 20s 30 ease-in-out;
+  animation:colours 20s 30 ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -moz-animation-iteration-count:infinite;
+  animation-iteration-count:infinite;
+  -webkit-animation-direction:alternate;
+  -moz-animation-direction:alternate;
+  animation-direction:alternate;
+  background:white;
+  cursor:pointer;
+  display:block;
+  font-size:40px;
+  height:40px;
+  margin:0;
+  padding:10px;
+  position:absolute;
+  text-align:center;
+  bottom:-30px;
+  right:-30px;
+  width:40px;
+  -webkit-border-radius:30px;
+  -moz-border-radius:30px;
+  border-radius:30px;
+}
