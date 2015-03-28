@@ -16,6 +16,7 @@ App = (data, render, onError, onAbort) ->
   console.log 'Init react with data.'
   Render = (Handler) ->
     # This is the default props sent to the Index view.
+    #console.log React.renderToStaticMarkup(React.createElement(Handler, data))
     render Handler, data
 
   if inBrowser
