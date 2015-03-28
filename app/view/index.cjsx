@@ -10,8 +10,8 @@ module.exports = React.createClass
     router: React.PropTypes.func.isRequired
   }
   render: ->
-    {db, title, sha, sections, section, workIndex, archiveYears} = @props
-    {primaryMenu, author, description} = db
+    {db, title, sha, sections, section, workIndex, archiveYears, currentYear} = @props
+    {primaryMenu, author, description, startYear, wufoo} = db
 
     appFileName = sha or 'app'
     cssFilePath = "/assets/#{appFileName}.css"
@@ -48,13 +48,16 @@ module.exports = React.createClass
             title: pageId
         else
           console.log 'missing page data!', pageId
+          pageData = {}
+      if pageId is 'contact' and wufoo
+        pageData.wufoo = wufoo
 
     if pageData?.title
-      title += ' | ' + pageData.title
+      pageTitle = title + ' | ' + pageData.title
 
     <html>
       <head>
-        <title>{title or 'title'}</title>
+        <title>{pageTitle or title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href={cssFilePath} />
@@ -65,7 +68,7 @@ module.exports = React.createClass
         <div className="container">
           <Header primaryMenu={primaryMenu} />
           <Main pageData={pageData} sections={sections} sectionsData={section} />
-          <Footer />
+          <Footer currentYear={currentYear} startYear={startYear} title={title} />
         </div>
         <script src={jsFilePath} type="text/javascript" />
       </body>
