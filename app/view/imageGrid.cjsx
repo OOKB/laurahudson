@@ -40,21 +40,15 @@ module.exports = React.createClass
   contextTypes: {
     router: React.PropTypes.func.isRequired
   }
-  getInitialState: ->
-    isMounted: false
-
-  componentDidMount: ->
-    @setState isMounted: true
 
   render: ->
     {images} = @props
-    {isMounted} = @state
     {i} = @context.router.getCurrentQuery()
     i = parseInt(i)
     maxIndex = images.length - 1
     ImageEl = (image, index) =>
       {id, filename, rev} = image
-      if isMounted and i is index
+      if i is index
         Detail = <ImageDetail id={id} filename={filename} i={i} maxIndex={maxIndex} />
       <li className="image" key={rev} >
         <Image id={id} filename={filename} i={index} />
