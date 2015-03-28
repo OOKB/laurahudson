@@ -4,11 +4,28 @@
 /* *********************************************** */
 /* *********************************************** */
 
+.controls {
+  width: 33%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.arrows {
+  display: block;
+  content:'';
+  background-repeat: no-repeat;
+  height: 100%;
+  position: absolute;
+  top:0;
+  bottom:0;
+}
+
 section {
   .image-grid {
     .image {
       .img-detail {
-        .animate-bgcolours;
+        .animate-bgcolours-trans;
         background-image: url('/media/loading.gif');
         background-position: center center;
         background-repeat: no-repeat;
@@ -60,13 +77,12 @@ section {
             top: 15px;
             right: 15px;
             z-index: 299;
+            .hide-text;
           }
 
           &.left {
-            width: 33%;
-            height: 100%;
-            top: 0;
-            bottom: 0;
+            .controls;
+            .hide-text;
             left: 0;
 
             &:hover {
@@ -74,26 +90,17 @@ section {
             }
 
             &::after {
-              display: block;
-              content:'';
+              .arrows;
               background-image: url(/media/arrowL.png);
-              background-position: center center;
-              background-repeat: no-repeat;
-              height: 100%;
-              width: 100%;
-              position: absolute;
-              top:0;
-              right:0;
-              bottom: 0;
-              left:0;
+              background-position: left center;
+              right: 0;
+              left:2em;
             }
           }
 
           &.right {
-            width: 33%;
-            height: 100%;
-            top: 0;
-            bottom: 0;
+            .controls;
+            .hide-text;
             right: 0;
 
             &:hover {
@@ -101,17 +108,10 @@ section {
             }
 
             &::after {
-              display: block;
-              content:'';
+              .arrows;
               background-image: url(/media/arrowR.png);
-              background-position: center center;
-              background-repeat: no-repeat;
-              height: 100%;
-              width: 100%;
-              position: absolute;
-              top:0;
-              right:0;
-              bottom: 0;
+              background-position: right center;
+              right:2em;
               left:0;
             }
           }

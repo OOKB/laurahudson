@@ -168,8 +168,8 @@ a:hover {
    ============================================================== */
 
 main {
-  padding-top:16.18px;
-  padding-bottom:16.18px;
+  padding-top: 32.36px;
+  padding-bottom: 32.36px;
   position:relative;
 
   h1, h2 {
@@ -208,7 +208,7 @@ main {
   section {
     ul,p {
       color:#796D69;
-      margin:12.36px 0;
+      margin:0 0 1.618em;
       padding: 0;
     }
 
@@ -241,8 +241,6 @@ main {
 
 @media (min-width: @small) and (max-width: 991px) {
   main {
-    padding-top: 32.36px;
-    padding-bottom: 32.36px;
     aside {
       margin-bottom: 32.36px;
       &::after {
@@ -317,47 +315,48 @@ main {
 }
 
 
-/* Something to do with the groups of images from the "work" menu
+/* Front Slideshow
    ============================================================== */
 
-#block-views-custom-taxonomy-pages-block .body {
-  border-bottom:solid 2px;
-  margin:0 0 12.36px 0;
-  padding:0;
-}
-
-div.view-custom-taxonomy-pages .views-row.image,
-div.view-archive .views-row.image {
-  width:24%;
-  float:left;
-  margin:0 1% 1% 0;
-  padding:0;
-}
-
-div.view-custom-taxonomy-pages .views-row.image div.sb-image,
-div.view-custom-taxonomy-pages .views-row.image a,
-div.view-custom-taxonomy-pages .views-row.image a img,
-div.view-archive .views-row.image div.sb-image,
-div.view-archive .views-row.image a,
-div.view-archive .views-row.image a img {
-  display:block;
-  margin:0;
-  padding:0;
-}
-
-ul.slideshow li {
+ul.slideshow {
+  position: relative;
   margin: 0;
   padding: 0;
-  list-style: none;
-  height: 640px;
-  width:640px;
-  position: absolute;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 500ms;
 
-  &.active {
-    z-index: 10;
-    opacity: 1;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width:50%;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 500ms;
+
+    &.active {
+      z-index: 10;
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: @small) {
+  ul.slideshow {
+    padding-bottom: 125%;
+    li {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: @small) {
+  ul.slideshow {
+    padding-bottom: 75%;
+  }
+}
+
+@media (min-width: @medium) {
+  ul.slideshow {
+    padding-bottom: 66%;
   }
 }
