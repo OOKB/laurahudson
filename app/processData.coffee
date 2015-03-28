@@ -15,7 +15,7 @@ module.exports = (data) ->
     data.workIndex = {}
     # Loop through everything in the work folder.
     _.each db.work.contents, (project, i) ->
-      {title, filename, section, year, images} = project
+      {title, filename, section, year, images, shortTitle} = project
       data.workIndex[filename] = i
       # If there is a section defined place it into the section menu.
       if section
@@ -27,6 +27,7 @@ module.exports = (data) ->
         # Add item to section menu.
         data.section[section].push {
           title: title
+          shortTitle: shortTitle
           section: section
           link: filename
         }
