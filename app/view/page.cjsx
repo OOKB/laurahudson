@@ -1,11 +1,12 @@
 React = require 'react'
 _ = require 'lodash'
 
+Wufoo = require './wufoo'
 SlideShow = require './slideshow'
 
 module.exports = React.createClass
   render: ->
-    {content, title, images, imageSettings, dir} = @props
+    {content, title, images, imageSettings, dir, wufoo} = @props
     if images
       if imageSettings
         {slideDuration, width, display} = imageSettings
@@ -25,4 +26,5 @@ module.exports = React.createClass
       { if content
           <div className="content" dangerouslySetInnerHTML={ __html: content }/>
       }
+      { if wufoo then <Wufoo hash={wufoo.hash} subdomain={wufoo.subdomain} /> }
     </div>

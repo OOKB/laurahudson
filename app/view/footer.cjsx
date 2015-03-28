@@ -2,8 +2,12 @@ React = require 'react'
 
 module.exports = React.createClass
   render: ->
-    {data, query} = @props
-
+    {startYear, currentYear, title, author} = @props
+    if startYear
+      startYear += ' - '
+    else
+      startYear = ''
+    txt = "All works © #{startYear}#{currentYear} - #{author or title}"
     <footer>
-      <p>All Works &copy; STARTYEAR – CURRENTYEAR Laura G. Hudson</p>
+      <p>{txt}</p>
     </footer>
