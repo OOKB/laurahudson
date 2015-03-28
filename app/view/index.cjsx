@@ -26,9 +26,14 @@ module.exports = React.createClass
       metaDescription = <meta name="description" content={description} />
     else
       metaDescription = false
+    unless title
+      title = '[title]'
 
     {pageId} = @context.router.getCurrentParams()
     pathParts = @context.router.getCurrentPathname().split('/')
+
+    unless pageId
+      pageId = 'homepage'
 
     if pageId
       if workIndex and pageData = db.work.contents[workIndex[pageId]]
@@ -42,7 +47,10 @@ module.exports = React.createClass
             images: archiveYears[parseInt(pageId)]
             title: pageId
         else
-          console.log 'missing page data!', pageId, currentPath
+          console.log 'missing page data!', pageId
+
+    if pageData?.title
+      title += ' | ' + pageData.title
 
     <html>
       <head>
