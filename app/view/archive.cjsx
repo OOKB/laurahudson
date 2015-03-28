@@ -6,5 +6,5 @@ module.exports = React.createClass
     {images, title} = @props
     <div className="archive">
       <h1>{title}</h1>
-      {Images}
+      {images}
     </div>
