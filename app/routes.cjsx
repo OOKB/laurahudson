@@ -3,14 +3,12 @@ React = require 'react'
 
 Index = require './view/index'
 Page = require './view/page'
-Work = require './view/work'
-Archive = require './view/archive'
 
 module.exports =
 
   <Route name="app" path="/" handler={Index}>
     <DefaultRoute handler={Page}/>
     <Route name="page" path=":pageId" handler={Page} />
-    <Route name="work" path="work/:pageId" handler={Work} />
-    <Route name="archive" path="archive/:pageId" handler={Work} />
+    <Route name="work" path="work/:pageId" handler={Page} />
+    <Route name="archive" path="archive/:pageId" handler={Page} />
   </Route>
