@@ -10,8 +10,8 @@ module.exports = React.createClass
     router: React.PropTypes.func.isRequired
   }
   render: ->
-    {db, title, sha, sections, section, workIndex, archiveYears, currentYear} = @props
-    {primaryMenu, author, description, startYear, wufoo} = db
+    {db, title, sha, sections, section, workIndex, archiveYears, currentYear, theme} = @props
+    {primaryMenu, author, description, startYear, wufoo, homepageId} = db
 
     appFileName = sha or 'app'
     cssFilePath = "/assets/#{appFileName}.css"
@@ -33,7 +33,7 @@ module.exports = React.createClass
     pathParts = @context.router.getCurrentPathname().split('/')
 
     unless pageId
-      pageId = 'homepage'
+      pageId = homepageId or 'homepage'
 
     if pageId
       if workIndex and pageData = db.work.contents[workIndex[pageId]]
@@ -51,7 +51,9 @@ module.exports = React.createClass
           pageData = {}
       if pageId is 'contact' and wufoo
         pageData.wufoo = wufoo
-
+      if theme
+        pageData.theme = theme
+        pageData.display = theme?.display?[pageId] or theme.defaultDisplay
     if pageData?.title
       pageTitle = title + ' | ' + pageData.title
 
